@@ -1,15 +1,14 @@
 function join(arr, concatStr) {
-    let combine = ''
-  for(let i = 0; i < arr.length; i++) {
-    if (arr.length === 0) {
-        return ''
-    } else if (i === arr.length-1) {
-      combine += arr[i]
+  let combine = '';
+  if (arr.length === 0) return '';
+  for (let i = 0; i < arr.length; i += 1) {
+    if (i === arr.length - 1) {
+      combine += arr[i];
     } else {
-      combine += arr[i] + concatStr
+      combine += arr[i] + concatStr;
     }
   }
-  return combine
+  return combine;
 }
 
 /*
@@ -18,7 +17,6 @@ function join(arr, concatStr) {
     if (arr.length === 0) { // special case
       return '';
     }
-  
     let result = arr[0];
     for (let i = 1; i < arr.length; i += 1) {
       result += concatStr + arr[i];
@@ -29,11 +27,11 @@ function join(arr, concatStr) {
 
 
 function repeat(str, times) {
-    let again = ''
-    for(i = 1; i <= times; i++) {
-        again += str
-    } 
-    return again
+  let again = '';
+  for (let i = 1; i <= times; i += 1) {
+    again += str;
+  }
+  return again;
 }
 
 
@@ -44,8 +42,8 @@ function repeat(str, times) {
     let again = ''
     for (let n = 1; n <= Number(times); n++) {
         for(i = 0; i < str.length; i++) {
-            again += str[i]
-        } 
+          again += str[i]
+        }
     }
     return again
 }
