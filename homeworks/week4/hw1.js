@@ -6,9 +6,8 @@ request(`${API_URL}/books?_limit=10`, (error, response, body) => {
   let list;
   try {
     list = JSON.parse(body);
-    // eslint-disable-next-line
-  } catch (error) {
-    console.error('fail:', error);
+  } catch (err) {
+    console.error('抓取失敗', err);
     return;
   }
 

@@ -31,14 +31,12 @@ function readBook(id) {
 }
 
 function deleteBook(id) {
+  // eslint-disable-next-line
   request.delete(`${API_URL}/books/${id}`, (error, response, body) => {
-    let book;
-    try {
-      book = JSON.parse(body);
-    } catch (err) {
-      console.log('刪除失敗:', err);
+    if (error) {
+      console.log('刪除失敗', error);
     }
-    console.log(`${book.id} ${book.name} 刪除成功`);
+    console.log('刪除成功');
   });
 }
 
@@ -48,14 +46,12 @@ function createBook(bookName) {
     form: {
       name: bookName,
     },
+    // eslint-disable-next-line
   }, (error, response, body) => {
-    let book;
-    try {
-      book = JSON.parse(body);
-    } catch (err) {
-      console.log('新增失敗:', err);
+    if (error) {
+      console.log('刪除失敗', error);
     }
-    console.log(`${book.id} ${book.name} 新增成功`);
+    console.log('新增成功');
   });
 }
 
