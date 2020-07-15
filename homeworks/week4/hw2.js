@@ -1,0 +1,97 @@
+const request = require('request');
+
+const API_URL = 'https://lidemy-book-store.herokuapp.com';
+// const process = require('process');
+const args = process.argv;
+
+function listBooks() {
+  request(`${API_URL}/books?_limit=20`, (error, response, body) => {
+    let list;
+    try {
+      list = JSON.parse(body);
+    } catch (err) {
+      console.log('失敗:', err);
+    }
+    for (let i = 0; i < list.length; i += 1) {
+      console.log(`${list[i].id} ${list[i].name}`);
+    }
+  });
+}
+
+function readBook(id) {
+  request(`${API_URL}/books/${id}`, (error, response, body) => {
+    let book;
+    try {
+      book = JSON.parse(body);
+    } catch (err) {
+      console.log('取得失敗:', err);
+    }
+    console.log(`${book.id} ${book.name}`);
+  });
+}
+
+function deleteBook(id) {
+  request.delete(`${API_URL}/books/${id}`, (error, response, body) => {
+    let book;
+    try {
+      book = JSON.parse(body);
+    } catch (err) {
+      console.log('刪除失敗:', err);
+    }
+    console.log(`${book.id} ${book.name} 刪除成功`);
+  });
+}
+
+function createBook(bookName) {
+  request.post({
+    url: `${API_URL}/books/`,
+    form: {
+      name: bookName,
+    },
+  }, (error, response, body) => {
+    let book;
+    try {
+      book = JSON.parse(body);
+    } catch (err) {
+      console.log('新增失敗:', err);
+    }
+    console.log(`${book.id} ${book.name} 新增成功`);
+  });
+}
+
+function updateBook(id, bookName) {
+  request.patch({
+    url: `${API_URL}/books/${id}`,
+    form: {
+      name: bookName,
+    },
+  }, (error, response, body) => {
+    let book;
+    try {
+      book = JSON.parse(body);
+    } catch (err) {
+      console.log('更改失敗:', err);
+    }
+    console.log(`${book.id} ${book.name} 更改成功`);
+  });
+}
+
+switch (args[2]) {
+  case 'list':
+    listBooks();
+    break;
+  case 'read':
+    readBook(args[3]);
+    break;
+  case 'delete':
+    deleteBook(args[3]);
+    break;
+  case 'create':
+    createBook(args[3]);
+    break;
+  case 'update':
+    updateBook(args[3], args[4]);
+    break;
+  default:
+    console.log('請輸入正確指令');
+}
