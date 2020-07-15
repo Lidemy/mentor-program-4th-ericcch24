@@ -53,7 +53,7 @@ function createBook(bookName) {
     // eslint-disable-next-line
   }, (error, response, body) => {
     if (error) {
-      console.log('刪除失敗', error);
+      console.log('新增失敗', error);
     }
     console.log('新增成功');
   });
