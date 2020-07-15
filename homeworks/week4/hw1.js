@@ -8,7 +8,7 @@ request(`${API_URL}/books?_limit=10`, (error, response, body) => {
     list = JSON.parse(body);
     // eslint-disable-next-line
   } catch (error) {
-    console.error('error:', error);
+    console.error('fail:', error);
     return;
   }
 
