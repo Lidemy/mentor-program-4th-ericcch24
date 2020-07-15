@@ -6,8 +6,9 @@ request(`https://restcountries.eu/rest/v2/name/${args[2]}`, (error, response, bo
   let data;
   try {
     data = JSON.parse(body);
-  } catch (err) {
-    console.log('抓取失敗:', err);
+    // eslint-disable-next-line
+  } catch (error) {
+    console.log('抓取失敗:', error);
   }
   if (response.statusCode === 404) {
     console.log('找不到國家資訊');
