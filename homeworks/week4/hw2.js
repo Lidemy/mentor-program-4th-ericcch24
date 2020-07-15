@@ -5,12 +5,14 @@ const API_URL = 'https://lidemy-book-store.herokuapp.com';
 const args = process.argv;
 
 function listBooks() {
+  // eslint-disable-next-line
   request(`${API_URL}/books?_limit=20`, (error, response, body) => {
     let list;
     try {
       list = JSON.parse(body);
-    } catch (err) {
-      console.log('失敗:', err);
+      // eslint-disable-next-line
+    } catch (error) {
+      console.log('失敗:', error);
     }
     for (let i = 0; i < list.length; i += 1) {
       console.log(`${list[i].id} ${list[i].name}`);
@@ -19,12 +21,14 @@ function listBooks() {
 }
 
 function readBook(id) {
+  // eslint-disable-next-line
   request(`${API_URL}/books/${id}`, (error, response, body) => {
     let book;
     try {
       book = JSON.parse(body);
-    } catch (err) {
-      console.log('取得失敗:', err);
+      // eslint-disable-next-line
+    } catch (error) {
+      console.log('取得失敗:', error);
     }
     console.log(`${book.id} ${book.name}`);
   });
@@ -61,12 +65,14 @@ function updateBook(id, bookName) {
     form: {
       name: bookName,
     },
+    // eslint-disable-next-line
   }, (error, response, body) => {
     let book;
     try {
       book = JSON.parse(body);
-    } catch (err) {
-      console.log('更改失敗:', err);
+      // eslint-disable-next-line
+    } catch (error) {
+      console.log('更改失敗:', error);
     }
     console.log(`${book.id} ${book.name} 更改成功`);
   });
