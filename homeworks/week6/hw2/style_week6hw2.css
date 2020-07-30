@@ -1,0 +1,123 @@
+.background {
+  width: 1920px;
+  height: 1340px;
+  background: rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.main {
+  position: absolute;
+  top: 100px;
+  bottom: 66px;
+  left: 639px;
+  right: 636px;
+}
+
+.topbar {
+  background: center #fad312;
+  width: 645px;
+  height: 8px;
+}
+
+form {
+  background: white;
+  width: 645px;
+  height: 1170px;
+}
+
+form section {
+  padding: 54px 298px 35px 42px;
+}
+
+.footer__top {
+  width: 1920px;
+  height: 3px;
+  background: #fad312;
+}
+
+.footer__bottom {
+  width: 1920px;
+  height: 60px;
+  text-align: center;
+  background: black;
+  color: #999999;
+  font-size: 13px;
+}
+
+.footer__bottom div {
+  padding: 24px
+}
+
+.title {
+  font-size: 36px;
+  white-space: nowrap;
+  letter-spacing: -1.8px;
+  margin-bottom: 35px;
+}
+
+.info {
+  font-size: 14px;
+  margin-bottom: 11px;
+}
+
+.warning {
+  font-size: 16px;
+  color: #e74149; 
+  margin-top: 22px;
+  margin-bottom: 55px;
+}
+
+.title__small {
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+
+span {
+  color: #e74149;
+}
+.suggestion {
+  font-size: 14px;
+  margin-top: 12px;
+  margin-bottom: 16px;
+}
+
+
+.blank {
+  width: 287px;
+  height: 23px;
+  margin-top: 20px;
+  margin-bottom: 49px;
+  font-size: 16px;
+}
+
+
+::-webkit-input-placeholder {
+  font-size: 16px;
+  color: #afafaf;
+}
+
+input[type="radio"] {
+  cursor: pointer;
+}
+
+.bed__desc {
+  display: inline-block;
+  padding: 24px 0px;
+  font-size: 14px;
+}
+
+.floor__desc {
+  display: inline-block;
+  padding-bottom: 50px;
+  font-size: 14px;
+}
+
+.button {
+  background: #fad312;
+  width: 92px;
+  height: 40px;
+  border-radius: 3px;
+  border-color: transparent;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
