@@ -1,0 +1,281 @@
+.navbar .wrapper {
+  height: 84px;
+  background: white;
+  display: flex;
+  justify-content: space-between; /* 推開左右兩邊元素，中間空白 */
+  align-items: center; /* 內容會垂直置中 */
+  padding: 0px 36px;
+}
+.navbar {
+  box-shadow: -1.4px -1.4px 6px 0 #97a2a0; 
+  /* 因為要讓整個 navbar 有陰影，所以要加在這，加在 .wrapper 會因為有寬度限制所以陰影會有邊界*/
+}
+
+.wrapper {
+  max-width: 1080px; /* 設定最大寬度防止在大螢幕看網頁的時候變很醜 */
+  margin: 0 auto; /* 上下為 0，左右邊距自動置中*/
+  padding: 0px 12px;
+} /* 這段試了一下直接加在 .navbar .wrapper 也可以 */
+
+.navbar__topic {
+  color: #489846;
+  font-family: Questrial;
+  font-size: 36px;
+  text-align: left;
+}
+
+.navbar__list {
+  list-style: none; /* 消掉list前面的點點 */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  font-size: 18px;
+}
+
+.navbar__list li {
+  margin-left: 10px;
+  border-radius: 8px;
+  transition: background 0.3s;
+}
+
+.navbar__list li.active, .navbar__list li:hover { /* 可以一樣條件的一起放 */
+  background: #ff7286; 
+}
+
+
+.navbar__list li.active a, .navbar__list li:hover a {
+  color: white;
+}
+
+.navbar__list li a {
+  display: block;
+  text-decoration: none;  /* 文字裝飾移除，這邊原本有底線 */
+  color: black;
+  padding: 10px 20px;
+}
+
+.banner {
+  position: relative;
+  background: url(2.jpg) center/cover no-repeat; /* cover 屬性可以讓圖片隨著視窗大小改變 */
+  height: 450px;
+}
+
+.banner::after { /* 直接在圖片上補東西 */
+  content: "";
+  position: absolute;
+  background: rgba(0, 0, 0, 0.4);
+  top: 0px; /* 距離邊緣的比例或長度 */
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+}
+
+.banner h1 {
+  display: inline-block;
+  position: relative;
+  margin: 0px;
+  color: white;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /*因為是內容的左上角在圖片中心，所以要左邊上面各移本體的 50%*/
+  font-size: 60px;
+  font-weight: bold;
+}
+
+
+h2 {
+  margin: 0;
+}
+
+.section {
+  text-align: center;
+  margin-top: 80px;
+}
+
+.section__title {
+  display: inline-block;
+  font-size: 36px;
+  border-left: solid 15px #a3dea2;
+  padding-left: 17px;
+  margin-bottom: 36px;
+
+}
+
+.section__desc {
+  font-size: 16px;
+  line-height: 2em;
+  margin: 0px 0px 84px 0px;
+}
+
+.button {
+  padding: 60px 80px;
+  font-size: 36px;
+  color: #3e613d;
+  display: inline-block;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+
+.button:hover {
+  transform: scale(1.1);
+}
+
+.btn-order {
+  background: #a8e8e1
+}
+
+.btn-search {
+  margin-left: 23px;
+  background: #f9f9b5;
+}
+
+.section__images {
+  display: flex;
+}
+
+.section__images  {
+  width: 100%;
+}
+
+.section__images img {
+  width: 100%;
+}
+
+footer {
+  margin-top: 43px;
+}
+
+.footer__bottom {
+  background: #35564b;
+  padding: 12px ;
+  text-align: center;
+  color: white;
+  font-size: 16px;
+}
+
+.footer__top {
+  background: #e8efee;
+  padding: 44px;
+  color: #484848;
+
+}
+
+.footer__top .wrapper {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+.footer__info {
+  margin-right: 16px;
+}
+
+.footer__info div + div {
+  margin-top: 10px;
+  
+}
+
+.footer__site {
+  font-size: 36px;
+  color: #489846;
+}
+
+.comment {
+  display: flex;
+  margin-top: 45px;
+}
+
+.person {
+  text-align: center;
+  border: 1px solid #c7e5ec;
+  width: 565px;
+  height: 240px;
+  border-radius: 5px;
+ 
+}
+
+.person:nth-child(2) {
+  margin: 0px 16px;
+}
+
+.person img {
+  position: relative;
+  width: 105px;
+  height: 105px;
+  border: 0.5px solid #d8eaef;
+  border-radius: 50%;
+  transform: translate(0%, -50%)
+  
+}
+
+.person div {
+  font-size: 14px;
+  letter-spacing: 0.14px;
+}
+
+.name {
+  position: relative;
+  bottom: 50px;
+}
+
+.content {
+  position: relative;
+  bottom: 45px;
+  margin: 23px 24px 39px 24px;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) { /* 手機平板寬度下的顯示方式 */
+  .navbar .wrapper {
+    height: 120px;
+    flex-direction: column;
+    padding: 0px;
+    justify-content: space-between;
+  }
+
+  .navbar__topic {
+   margin-top: 10px;
+  }
+
+  .navbar__list {
+    display: flex;
+    width: 100%; /* 佔滿整排元素 */
+  }
+
+  .navbar__list li {
+    margin-left: 0;
+    flex: 1; /* 全部元素會均分 */
+    border-radius: 0px;
+    text-align: center;
+  }
+  .btn-search {
+    margin-top: 16px;
+    margin-left: 0px;
+  }
+  
+  .section__images {
+    flex-direction: column;
+    width: 100%
+  }
+
+  .footer__top .wrapper {
+    flex-direction: column-reverse; /* 改成直行並順序顛倒 */
+  }
+
+  .footer__info {
+    margin-top: 16px;
+    margin-right: 0px;
+  }
+
+  .comment {
+    flex-direction: column;
+  }
+  .person {
+    width: 100%;
+  }
+  .person:nth-child(2) {
+    margin: 60px 0px 60px 0px;
+  }
+}
