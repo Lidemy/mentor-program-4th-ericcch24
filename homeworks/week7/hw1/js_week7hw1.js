@@ -6,6 +6,7 @@ document
     const values = {};
     const inputs = document.querySelectorAll('.must'); // 找 .must 底下的 input
     for (let i = 0; i < inputs.length; i += 1) {
+      // ES6 用法：for(const input of inputs)，然後這會被 eslint 擋掉是三小
       values[inputs[i].name] = inputs[i].value;
       if (inputs[i].value === null || inputs[i].value === '') { // 或是 !input.value
         inputs[i].parentNode.classList.remove('hide-error'); // parentNode 找上層
@@ -17,6 +18,7 @@ document
 
     const elements = document.querySelectorAll('.what-type'); // 找底下有沒有 radio
     for (let i = 0; i < elements.length; i += 1) {
+      // ES6 用法：for(const input of inputs)，然後這會被 eslint 擋掉是三小
       const radios = elements[i].querySelectorAll('input[type=radio]');
       if (!radios.length) {
         // eslint-disable-next-line
