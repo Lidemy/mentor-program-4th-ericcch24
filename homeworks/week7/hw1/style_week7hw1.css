@@ -1,0 +1,167 @@
+body {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.main {
+  max-width: 645px; /* 這樣設定最大寬度表示比 645 寬會顯示 645，比較窄就會 100%，這樣就不用另外設 rwd 了 */
+  margin: 10% auto;
+  background: white;
+  white-space: nowrap;
+}
+/*
+.background {
+  width: 1920px;
+  height: 1340px;
+  background: rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.main {
+  position: absolute;
+  top: 100px;
+  bottom: 66px;
+  left: 639px;
+  right: 636px;
+}
+
+
+form {
+  background: white;
+}
+*/
+.topbar {
+  background: center #fad312;
+  
+  height: 8px;
+}
+
+
+form section {
+  padding: 54px 298px 35px 42px;
+}
+
+.footer__top {
+  height: 3px;
+  background: #fad312;
+}
+
+.footer__bottom {
+  height: 60px;
+  text-align: center;
+  background: black;
+  color: #999999;
+  font-size: 13px;
+}
+
+.footer__bottom div {
+  padding: 24px
+}
+
+.title {
+  font-size: 36px;
+  
+  letter-spacing: -1.8px;
+  margin-bottom: 35px;
+}
+
+.info {
+  font-size: 14px;
+  margin-bottom: 11px;
+}
+
+.warning {
+  font-size: 16px;
+  color: #e74149; 
+  margin-top: 22px;
+  margin-bottom: 55px;
+}
+
+.title__small {
+  font-size: 20px;
+  letter-spacing: 1px;
+  margin-top: 50px;
+}
+
+span { /* 這邊也可以直接用 :after 加內容*/
+  color: #e74149;
+}
+.suggestion {
+  font-size: 14px;
+  margin-top: 12px;
+}
+
+
+.blank {
+  width: 287px;
+  height: 23px;
+  margin-top: 20px;
+  font-size: 16px;
+}
+
+
+::-webkit-input-placeholder {
+  font-size: 16px;
+  color: #afafaf;
+}
+
+input[type="radio"] {
+  cursor: pointer;
+}
+
+.bed__desc {
+  display: inline-block;
+  padding: 24px 0px;
+  font-size: 14px;
+}
+
+.floor__desc {
+  display: inline-block;
+  padding-bottom: 10px;
+  font-size: 14px;
+}
+
+.button {
+  background: #fad312;
+  width: 92px;
+  height: 40px;
+  border-radius: 3px;
+  border-color: transparent;
+  margin: 20px 0px;
+  cursor: pointer;
+}
+
+.fill-blank {
+  font-size: 16px;
+  color: #e74149; 
+  margin-top: 10px;
+}
+
+.hide-error .fill-blank {
+  visibility: hidden; /* 用這個不會影響到其他元素位置，因為東西其實還在只是隱藏 */
+}
+
+/*
+@media (max-width: 768px) {
+  .main {
+    position: static;
+    margin: 0;
+  }
+
+  .background {
+    background: none;
+  }
+  .background, .main .topbar, .main form, .footer__top, .footer__bottom {
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+  }
+
+  form, .footer__bottom {
+    white-space: nowrap;
+  }
+
+  .title {
+    font-size: 30px;
+  }
+}
+*/

@@ -1,0 +1,64 @@
+.list {
+  max-width: 600px;
+  margin: 10% auto;
+  background: rgb(129, 238, 178);
+  text-align: center;
+  border-radius: 10px ;
+}
+
+.list__title {
+  display: inline-block;
+  font-size: 48px;
+  margin-top: 30px;
+  margin-bottom: 5px;
+}
+
+
+
+.blank {
+  width: 300px;
+  margin: 15px;
+  margin-left: 55px;
+}
+
+.add-button {
+  cursor: pointer;
+}
+
+.content {
+  font-size: 24px;
+  margin-left: 20px;
+}
+
+.list__area {
+  display: flex;
+  flex-direction: column;
+}
+
+.list__item {
+  display: flex;
+  margin: 20px 100px;
+  position: relative;
+}
+
+
+input[type=checkbox] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.delete {
+  margin-left: 370px;
+  position: absolute;
+  cursor: pointer;
+}
+
+.list__item:last-child {
+  margin-bottom: 35px;
+}
+
+.finish {
+  color: rgba(0, 0, 0, 0.2);
+  text-decoration-line: line-through;
+}
