@@ -1,7 +1,7 @@
-/* eslint-disable no-alert, no-restricted-syntax, prefer-arrow-callback, no-continue */
+/* eslint-disable no-restricted-syntax, no-continue */
 document
   .querySelector('form')
-  .addEventListener('submit', function target(e) {
+  .addEventListener('submit', (e) => {
     e.preventDefault();
     let hasError = false; // 預設沒有錯誤，必填欄位都有填
     const values = {};
@@ -54,4 +54,4 @@ function validBlank() {
   }
 }
 */
-/* eslint-enable no-alert, no-restricted-syntax, prefer-arrow-callback, no-continue */
+/* eslint-enable no-restricted-syntax, no-continue */
