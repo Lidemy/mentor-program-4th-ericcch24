@@ -1,4 +1,3 @@
-/* eslint-disable no-continue */
 document
   .querySelector('form')
   .addEventListener('submit', (e) => {
@@ -20,6 +19,7 @@ document
     for (let i = 0; i < elements.length; i += 1) {
       const radios = elements[i].querySelectorAll('input[type=radio]');
       if (!radios.length) {
+        // eslint-disable-next-line
         continue; // 陣列長度是 true 的話代表陣列裡面有元素
       }
       const hasValue = [...radios].some(radio => radio.checked);
@@ -54,4 +54,3 @@ function validBlank() {
   }
 }
 */
-/* eslint-enable no-continue */
