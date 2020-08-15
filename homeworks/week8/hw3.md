@@ -12,4 +12,4 @@
 * 透過 Cross-Origin Resource Sharing 跨來源資源共享的規範。當要取用不同網域的 API 時，Server 端必須要在 Response 的 Header 加上 `Access-Control-Allow-Origin` 的內容，如果裡面有包含現在這個發送 Request 的 Origin 的話，瀏覽器檢查之後通過，就可以順利接收到 Response。
 
 ## 為什麼我們在第四週時沒碰到跨網域的問題，這週卻碰到了？
-* 因為在第四週的時候是利用 Node.js 來發送 Request 與接收 Response，因為中間過程沒有被瀏覽器的一些特殊內容與額外規則所限制（例如上一題的`Access-Control-Allow-Origin`，瀏覽器會把不同源的 API 回傳的 Response 擋住，而 Node.js 沒有這些限制），所以發送接收就可以順利進行。
+* 因為在第四週的時候是利用 Node.js 來發送 Request 與接收 Response，因為中間過程沒有被瀏覽器的一些特殊內容與額外規則所限制（例如上一題的`Access-Control-Allow-Origin`，瀏覽器會把不同源的 API 回傳的 Response 擋住（安全性的原因），而 Node.js 沒有這些限制），所以發送接收就可以順利進行。
