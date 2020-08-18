@@ -1,0 +1,327 @@
+* {
+  box-sizing: border-box;
+}
+.navbar .wrapper {
+  height: 84px;
+  background: white;
+  display: flex;
+  justify-content: space-between; /* 推開左右兩邊元素，中間空白 */
+  align-items: center; /* 內容會垂直置中 */
+  padding: 0px 36px;
+}
+.navbar {
+  box-shadow: -1.4px -1.4px 6px 0 #97a2a0; 
+  /* 因為要讓整個 navbar 有陰影，所以要加在這，加在 .wrapper 會因為有寬度限制所以陰影會有邊界*/
+}
+
+.wrapper {
+  max-width: 1920px; /* 設定最大寬度防止在大螢幕看網頁的時候變很醜 */
+  margin: 0 auto; /* 上下為 0，左右邊距自動置中*/
+  padding: 0px 12px;
+} /* 這段試了一下直接加在 .navbar .wrapper 也可以 */
+
+.navbar__topic {
+  color: #489846;
+  font-family: Questrial;
+  font-size: 36px;
+  text-align: left;
+}
+
+.navbar__list {
+  list-style: none; /* 消掉list前面的點點 */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  font-size: 18px;
+}
+
+.navbar__list li {
+  margin-left: 10px;
+  border-radius: 8px;
+  transition: background 0.3s;
+}
+
+.navbar__list li.active, .navbar__list li:hover { /* 可以一樣條件的一起放 */
+  background: #ff7286; 
+}
+
+
+.navbar__list li.active a, .navbar__list li:hover a {
+  color: white;
+}
+
+.navbar__list li a {
+  display: block;
+  text-decoration: none;  /* 文字裝飾移除，這邊原本有底線 */
+  color: black;
+  padding: 10px 20px;
+}
+
+.cover {
+  background: url(games-bn.png) center/cover no-repeat; 
+  height: 600px;
+  position: relative;
+}
+
+.cover::after { /* 直接在圖片上補東西 */
+  content: "";
+  position: absolute;
+  background: rgba(0, 0, 0, 0.3);
+  top: 0px; /* 距離邊緣的比例或長度 */
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+}
+
+
+.cover.first {
+  background: url(https://cdn.pixabay.com/photo/2019/07/04/06/35/flight-4315953_1280.jpg) no-repeat center center; 
+  background-size: cover;
+  height: 600px;
+  position: relative;
+}
+
+.cover.second {
+  background: url(https://cdn.pixabay.com/photo/2016/11/30/08/46/living-room-1872192_1280.jpg) no-repeat center center; 
+  background-size: cover;
+  height: 600px;
+  position: relative;
+}
+
+.cover.third {
+  background: url(https://cdn.pixabay.com/photo/2017/08/10/03/00/youtube-2617510_1280.jpg) no-repeat center center; 
+  background-size: cover;
+  height: 600px;
+  position: relative;
+}
+
+.cover.none {
+  background: black no-repeat center center; 
+  background-size: cover;
+  height: 600px;
+  position: relative;
+}
+
+
+.info {
+  width: 500px;
+  background: white;
+  top: 50%;
+  left: 50%;
+  position: relative;
+  transform: translate(-50%, -50%);
+  border-radius: 16px;
+  text-align: center;
+  padding: 12px 12px 20px 12px;
+  z-index: 1;
+}
+
+.info__title {
+  color: #5ec1b6;
+  font-size: 24px;
+  font-weight: bold;
+  padding: 20px 20px 20px 20px;
+}
+
+.info__detail {
+  padding: 0px 15px 15px 15px;
+}
+
+.info__sec {
+  display: flex;
+  padding: 20px 0px;
+  border-bottom: solid 1px #cdcdcd;
+  align-items: flex-start;
+}
+
+
+.head {
+  font-size: 18px;
+  font-weight: bold;
+  color: #322929;
+  width: 90px;
+  text-align: left;
+}
+
+
+.content {
+  font-size: 16px;
+  line-height: 1.5em;
+  color: #322929;
+  margin-left: 10px;
+  flex: 1;
+  text-align: left;
+}
+
+.prize {
+  letter-spacing: 18px;
+  white-space: nowrap;
+}
+
+
+.lottery {
+  background: #e62a45;
+  border-radius: 8px;
+  max-width: 400px;
+  font-size: 20px;
+  color: white;
+  margin: 0 auto;
+  cursor: pointer;
+  z-index: 2;
+  text-align: center;
+  padding: 16px 0px;
+}
+
+.lottery-btn {
+  background: #e62a45;
+  border-radius: 8px;
+  max-width: 400px;
+  font-size: 20px;
+  color: white;
+  margin: 0 auto;
+  cursor: pointer;
+  z-index: 3;
+  text-align: center;
+  padding: 16px 0px;
+}
+
+.lottery-cover {
+  font-size: 26px;
+  font-weight: bold;
+  top: 50%;
+  left: 50%;
+  position: relative;
+  transform: translate(-50%, -50%);
+  z-index: 1; 
+  color: white;
+  text-align: center;
+  max-width: 800px;
+}
+
+h2 {
+  margin: 0;
+}
+
+.lottery-title {
+  margin-bottom: 30px;
+}
+
+
+
+
+
+.footer__bottom {
+  background: #35564b;
+  padding: 12px ;
+  text-align: center;
+  color: white;
+  font-size: 16px;
+}
+
+.footer__top {
+  background: #e8efee;
+  padding: 44px;
+  color: #484848;
+
+}
+
+.footer__top .wrapper {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+.footer__info {
+  margin-right: 16px;
+}
+
+.footer__info div + div {
+  margin-top: 10px;
+  
+}
+
+.footer__site {
+  font-size: 36px;
+  color: #489846;
+}
+
+
+
+p {
+  margin-right: 20px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  color: #000000;
+  
+}
+
+.hide {
+  display: none;
+}
+
+
+
+
+@media (max-width: 768px) { /* 手機平板寬度下的顯示方式 */
+  .navbar .wrapper {
+    height: 120px;
+    flex-direction: column;
+    padding: 0px;
+    justify-content: space-between;
+  }
+
+  .navbar__topic {
+   margin-top: 10px;
+  }
+
+  .navbar__list {
+    display: flex;
+    width: 100%; /* 佔滿整排元素 */
+  }
+
+  .navbar__list li {
+    margin-left: 0;
+    flex: 1; /* 全部元素會均分 */
+    border-radius: 0px;
+    text-align: center;
+  }
+ 
+  .footer__top .wrapper {
+    flex-direction: column-reverse; /* 改成直行並順序顛倒 */
+  }
+
+  .footer__info {
+    margin-top: 16px;
+    margin-right: 0px;
+  }
+
+  .info {
+    width: 100%;
+  }
+
+  .info__title {
+    padding: 10px;
+  }
+
+  .info__detail {
+    padding: 0px 20px;
+  }
+
+  .info__sec {
+    padding: 3px;
+  }
+
+  .lottery {
+    width: 90%;
+    margin-top: 10px;
+  }
+
+  .lottery-btn {
+    width: 90%;
+  }
+
+
+  .lottery-title {
+    margin: 0px 10px 30px 10px;
+  }
+}
