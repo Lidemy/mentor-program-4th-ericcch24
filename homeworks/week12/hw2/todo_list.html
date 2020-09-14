@@ -1,0 +1,199 @@
+<!DOCTYPE HTML> 
+<html>
+  <head>
+    <meta charset="utf-8" /> 
+    <title>Todo List</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script>
+      let id = 1;
+      const html = `
+        <div class="row todo text-center">
+          <div class="col-12 col-md-8">
+            <input type="checkbox" id="todo-{id}">
+            <span class="h3 content">{content}</span><br>
+            <div class="edit hide">
+              <input class="edit-input form-control" />
+              <button class="btn edit-submit btn-success">送出</button>
+            </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <button class="btn btn-edit btn-info">編輯</button>
+            <button class="btn btn-delete btn-danger">刪除</button>
+          </div>
+        </div>
+      `  
+      $(document).ready(function() {
+        // 新增 todo
+        $('.btn-input').click(function(e) {
+          addTodo();
+        })
+
+        // 按 enter 新增 todo
+        $('.todo-input').keydown((e) => {
+          if (e.key === 'Enter') {
+            addTodo();
+          }
+        })
+
+        // 清空 todo
+        $('.btn-remove-all').click(() => {
+          $('.todos').empty(); 
+        })
+
+        // 編輯 todo
+        $('.todos').on('click', '.btn-edit', (e) => {
+          $(e.target).parent().parent().children('.col-md-8').children('.edit').toggleClass('hide');
+        })
+        $('.todos').on('click', '.edit-submit', (e) => {
+          const edit = $(e.target).parent();
+          const editValue = $(e.target).siblings('.edit-input').val();
+          if (!editValue) return;
+          edit.addClass('hide');
+          edit.siblings('.content').empty();
+          edit.siblings('.content').text(escapeHtml(editValue));
+        })
+
+        // 刪除 todo
+        $('.todos').on('click', '.btn-delete', (e) => {
+          $(e.target).parent().parent().remove();
+        })
+
+        // 標記完成
+        $('.todos').on('click', '[type=checkbox]', (e) => {
+          const todo = $(e.target).parent().parent();
+          const isChecked = $(e.target).is(':checked');
+          // 布林判斷 checkbox 有沒有打勾 
+
+          // 或是用 todo.hasClass('finish') 來判斷有沒有 class
+          if(isChecked) {
+            todo.addClass('finish');
+          } else {
+            todo.removeClass('finish');
+          }
+        })
+
+        // 所有 todo
+        $('.btn-all').click(() => {
+          removeActive();
+          $('.btn-all').addClass('active');
+          $('.todo').show();
+        })
+
+        // 已完成
+        $('.btn-solve').click(() => {
+          removeActive();
+          $('.btn-solve').addClass('active');
+          $('.todo').hide();
+          $('.todo.finish').show();
+          //$('.todo').not('.finish').hide();
+        })
+
+        // 未完成
+        $('.btn-unsolve').click(() => {
+          removeActive();
+          $('.btn-unsolve').addClass('active');
+          $('.todo').show();
+          $('.todo.finish').hide();
+          //$('.todo').filter('.finish').hide();
+        })
+      })
+
+      function addTodo() {
+        const value = $('.todo-input').val();
+          if (!value) return;
+          $('.todos').append(
+            html
+              .replace('{content}', escapeHtml(value))
+              .replaceAll('{id}', id)
+          );
+          id += 1;
+          $('.todo-input').val(''); 
+      }
+
+      function escapeHtml(unsafe) {
+        return unsafe
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#039;");
+      }
+
+      function removeActive() {
+        $('.sort').children().children().removeClass('active');
+      } 
+    </script>
+    <style>
+      .container {
+        margin-top: 100px;
+        background: black;
+      }
+      .input-row, .sort {
+        margin: 25px;
+      }
+      .todos {
+        margin: 45px auto;
+        max-width: 800px;
+        background: gold;
+        border-radius: 5px;
+      }
+      .todo {
+        border-bottom: 1px solid black;
+        border-radius: 5px;
+        padding: 10px;
+        margin: 5px auto;
+        word-break: break-word;
+      }
+
+      .finish {
+        color: rgba(0, 0, 0, 0.2);
+        text-decoration-line: line-through;
+      }
+
+      .hide {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-12 text-white">
+          <h1>Todo List</h1>
+        </div>
+      </div>
+
+      <div class="row input-row">
+        <div class="col-12 col-md-4 offset-md-2">
+          <input class="todo-input form-control" placeholder="在計劃什麼？"/>
+        </div>
+        <div class="col-12 col-md-2">
+          <button class="btn btn-input btn-primary btn-block">新增計畫</button>
+        </div>
+        <div class="col-12 col-md-2">
+          <button class="btn btn-remove-all btn-danger btn-block">移除所有計畫</button>
+        </div>
+      </div>
+      <div class="row sort">
+        <div class="col-12 col-md-2 offset-md-3">
+          <button class="btn btn-all btn-outline-primary btn-block">全部</button>
+        </div>
+        <div class="col-12 col-md-2">
+          <button class="btn btn-solve btn-outline-success btn-block">已完成</button>
+        </div>
+        <div class="col-12 col-md-2">
+          <button class="btn btn-unsolve btn-outline-warning btn-block">未完成</button>
+        </div>
+      </div>
+      <div class="todos">
+      </div>
+      
+    </div>
+    <script>
+      
+    </script>
+  </body> 
+</html>
+
+ 
