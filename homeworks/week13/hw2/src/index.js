@@ -85,4 +85,3 @@ export function init(options) {
     });
   }
 }
-/* eslint-enable */
