@@ -10,3 +10,13 @@
 
 ## CSS Selector 權重的計算方式為何？
 
+* 權重大小依序排下來是：inline style > ID > Class > Element > *
+
+* *: 0-0-0-0
+* element: 0-0-0-1
+* class, psuedo-class, attribute(例如[type:checkbox]): 0-0-1-0
+* id: 0-1-0-0
+* inline style attribute(寫在 html 行內的 style): 1-0-0-0
+* !important: 可以蓋過全部
+
+參考資料：https://ithelp.ithome.com.tw/articles/10196454
