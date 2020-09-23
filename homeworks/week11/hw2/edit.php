@@ -104,7 +104,7 @@
               </div>
               <input type="hidden" name="page" value="<?php echo $_SERVER["HTTP_REFERER"] ?>">
             </form>
-          <? } else { ?>
+          <?php } else { ?>
             <form action="handle_article.php" method="POST">
               <div class="edit-post__title">
                 發表文章：
