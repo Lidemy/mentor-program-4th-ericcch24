@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <%- include('template/head') %>
+</head>
+
+<body>
+  <%- include('template/nav') %>
+  <div class="container">
+    <% if (errorMessage && errorMessage.length > 0) { %>
+      <h2 class="alert alert-danger" role="alert">錯誤：<%= errorMessage %></h2>
+  <% } %>
+    <% if (username) { %>
+      <% prizes.forEach(function(prize) { %>
+        <% if (prize.is_deleted === null) { %>
+        <div class="prize list-group m-4">
+          <div class="list-group-item list-group-item-action">
+            <div class="justify-content">
+              <h3 class="mb-3"><%= prize.prize_name %></h3>
+              <p class="mb-3">抽中機率：<%= prize.probability%></p>
+            </div>
+            <p class="mb-3">說明：<%= prize.description %></p>
+            <p class="mb-3">圖片網址：<%= prize.image_URL %></p>
+            <a href="/admin/update/<%= prize.id %>" class="mb-5"><h5>編輯<h5></a>
+            <a href="/admin/delete/<%= prize.id %>" class="mb-5"><h5>刪除<h5></a>
+          </div>
+        </div>
+        <% } %>
+      <% }) %>
+    <% } else { %>
+      <div class="error">請登入後繼續</div>
+    <% } %>
+  </div>
+</body>
+</html>
