@@ -1,6 +1,6 @@
 # 程式導師實驗計畫第四期
 
-備註：二十週以後的課程尚未完成，作業也還沒決定
+備註：二十三週以後的課程尚未完成，作業也還沒決定
 
 ## 這是什麼
 
@@ -754,18 +754,33 @@ HTML 的部分會簡單介紹幾個常見的 tag，以及 head 的一些屬性�
 
 這週會學習到 React 的基本應用以及原理，了解為什麼我們需要使用 React。
 
-延伸閱讀：[React 性能優化大挑戰：一次理解 Immutable data 跟 shouldComponentUpdate](https://blog.techbridge.cc/2018/01/05/react-render-optimization/)
-
 指定教材：
 
-1. [FE301] React 基礎：全部
-2. 程式導師實驗計畫第二期：Week12-1 React
-3. 程式導師實驗計畫第二期：Week12-2 React 續
-4. [官方教學](https://reactjs.org/tutorial/tutorial.html)
-5. [React.js 小書](http://huziketang.mangojuice.top/books/react/)
+React 的核心概念之一叫做 component，要寫出這個 component 有兩種方式，一個是透過 class，一個是透過 function，前者就叫做 class component，後者叫做 function component。
 
+React 在 2019 年 2 月推出 v16.8 這個版本，做了一個很大的改動，那就是多了一個東西叫做 hooks，讓 function component 也能擁有 state。
 
-[HW21 作業連結](/homeworks/week21/fe)
+這個對 React 生態系的影響很大，甚至改變了原本在寫 React 時的思考方式，是很大的變革，但滿多教材都是比較舊的內容，裡面會提到的東西叫做 class component。
+
+雖然說 class component 在很多 app 裡還是很常看到，但基本上新的 app 都是用 function component + hooks 在開發了，底下會把學習資源分成 function component + class component 兩塊，請先學習 function component，如果看不懂或有疑惑，再回去看 class component。
+
+#### function component 學習資源
+
+1. [FE302] React 基礎 - hooks 版本，看到「React 基礎」結束，應該就能寫出本週的作業了
+
+部署的部分可以參考 FE302 課程中的「部署 React App」，記得在交作業之前先部署好，助教才比較方便改作業。
+
+如果課程看不懂，可以額外參考：[從 Hooks 開始，讓你的網頁 React 起來](https://ithelp.ithome.com.tw/users/20103315/ironman/2668?page=1)
+
+#### class component 學習資源
+
+1. [FE301] React 基礎（Class component 版）：全部
+2. [官方教學](https://reactjs.org/tutorial/tutorial.html)
+3. [React.js 小書](http://huziketang.mangojuice.top/books/react/)
+
+延伸閱讀：[React 性能優化大挑戰：一次理解 Immutable data 跟 shouldComponentUpdate](https://blog.techbridge.cc/2018/01/05/react-render-optimization/)
+
+[HW21 作業連結](/homeworks/week21)
 
 #### 自我檢測
 
@@ -778,25 +793,31 @@ HTML 的部分會簡單介紹幾個常見的 tag，以及 head 的一些屬性�
 
 在上一週結束之後，大家應該對 React 有了一些基本的感覺，這一週我們要繼續培養對 React 的感覺，讓大家對 React 越來越熟練。
 
-除此之外也會教大家用 React Router 這一套 library，來實做前端的路由。
+除此之外也會教大家用 React Router 這一套 library，來實做前端的路由。然後也會在課程中帶大家做出一個半成品的 SPA 部落格，並交由各位把剩下的功能完成。
 
 指定教材：
 
-1. [FE301] React 基礎：全部
-2. 程式導師實驗計畫第二期：Week13-1 還是 React
-3. 程式導師實驗計畫第二期：Week13-2 依舊 React
+1. [FE302] React 基礎 - hooks 版本：全部
 
-[HW22 作業連結](/homeworks/week22/fe)
+[HW22 作業連結](/homeworks/week22)
 
-延伸閱讀：[前後端分離與 SPA](https://blog.techbridge.cc/2017/09/16/frontend-backend-mvc/)、[跟著小明一起搞懂技術名詞：MVC、SPA 與 SSR](https://medium.com/@hulitw/introduction-mvc-spa-and-ssr-545c941669e9)
+延伸閱讀：
+
+1. [前後端分離與 SPA](https://blog.techbridge.cc/2017/09/16/frontend-backend-mvc/)
+2. [跟著小明一起搞懂技術名詞：MVC、SPA 與 SSR](https://medium.com/@hulitw/introduction-mvc-spa-and-ssr-545c941669e9)
+3. [How Are Function Components Different from Classes?](https://overreacted.io/how-are-function-components-different-from-classes/)
+4. [A Complete Guide to useEffect](https://overreacted.io/a-complete-guide-to-useeffect/)
 
 #### 自我檢測
 
-- [ ] 我熟悉 React 的基本使用
-- [ ] 我知道如何使用 React Router 
-- [ ] 我了解 React Router 的目的
-- [ ] 我知道什麼是 Single Page Application
-- [ ] 我理解現在的前端與以往的差別
+- [ ] P1 我熟悉 React 的基本使用
+- [ ] P1 我知道如何使用 React Router 
+- [ ] P1 我了解 React Router 的目的
+- [ ] P1 我知道什麼是 Single Page Application
+- [ ] P1 我理解現在的前端與以往的差別
+- [ ] P1 我知道 class component 與 function component 的差異
+- [ ] P1 我知道 class component 的各個 lifecycle
+- [ ] P2 我知道每一個 hook 大概是在做什麼
 
 ### 第二十三週（11/16 ~ 11/22）：前端框架（三）
 
@@ -809,7 +830,7 @@ HTML 的部分會簡單介紹幾個常見的 tag，以及 head 的一些屬性�
 1. 程式導師實驗計畫第二期：Week14-1 Redux
 2. 程式導師實驗計畫：Lesson 13-1 之 React + Redux
 
-[HW23 作業連結](/homeworks/week23/fe)
+[HW23 作業連結](/homeworks/week23)
 
 #### 自我檢測
 
@@ -827,7 +848,7 @@ HTML 的部分會簡單介紹幾個常見的 tag，以及 head 的一些屬性�
 3. 第二期 React 補充：什麼是 super 以及生命週期的運用
 4. 第二期 React 補充：再來談談什麼是 this
 
-[HW24 作業連結](/homeworks/week24/fe)
+[HW24 作業連結](/homeworks/week24)
 
 #### 自我檢測
 
