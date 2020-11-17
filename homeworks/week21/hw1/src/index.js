@@ -1,7 +1,4 @@
-/* eslint-disable react/jsx-filename-extension */
-/* eslint-disable import/no-named-as-default */
-/* eslint-disable import/no-unresolved */
-/* eslint-disable import/no-named-as-default-member */
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';

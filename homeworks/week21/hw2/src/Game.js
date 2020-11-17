@@ -1,7 +1,6 @@
 /* eslint-disable import/no-unresolved */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-filename-extension */
-/* eslint-disable react/no-array-index-key */
 /* eslint-disable no-shadow */
 
 
@@ -71,9 +70,9 @@ export default function game({
       </Description>
       <Board>
         {array.map((_, x) => (
-          <BoardRow key={x}>
+          <BoardRow key={x.id}>
             {array.map((_, y) => (
-              <BoardSquare key={y} onClick={handleGameClick(x, y, piece)}>
+              <BoardSquare key={y.id} onClick={handleGameClick(x, y, piece)}>
                 <Piece color={board[x][y]} />
               </BoardSquare>
             ))}
