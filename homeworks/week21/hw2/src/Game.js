@@ -1,9 +1,3 @@
-/* eslint-disable import/no-unresolved */
-/* eslint-disable react/prop-types */
-/* eslint-disable react/jsx-filename-extension */
-/* eslint-disable no-shadow */
-
-
 import styled from 'styled-components';
 import React from 'react';
 
@@ -37,7 +31,7 @@ const Piece = styled.div`
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background: ${props => props.color};
+  background: ${(props) => props.color};
 `;
 
 const Description = styled.div`

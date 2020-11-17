@@ -1,8 +1,3 @@
-/* eslint-disable consistent-return */
-/* eslint-disable import/no-unresolved */
-/* eslint-disable react/jsx-filename-extension */
-/* eslint-disable react/button-has-type */
-
 import './App.css';
 import React from 'react';
 import TodoItem from './TodoItem';
@@ -23,7 +18,7 @@ function App() {
     showUndone,
   } = useTodo();
 
-  const renderTodoItem = todo => (
+  const renderTodoItem = (todo) => (
     <TodoItem
       key={todo.id}
       todo={todo}
@@ -39,27 +34,27 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <div className='App'>
       <h1>Todo List</h1>
       <input
-        className="input-todo"
-        type="text"
-        placeholder="type todo"
+        className='input-todo'
+        type='text'
+        placeholder='type todo'
         value={value}
         onChange={handleInputChange}
       />
-      <button className="add-button" onClick={handleButtonClick}>
+      <button className='add-button' onClick={handleButtonClick}>
         新增
       </button>
-      <div className="filter">
+      <div className='filter'>
         <button onClick={showAll}>全部</button>
         <button onClick={showDone}>已完成</button>
         <button onClick={showUndone}>未完成</button>
         <button onClick={handleDeleteAll}>清空</button>
       </div>
       {todos
-        .filter(todo => checkFilter(todo))
-        .map(todo => renderTodoItem(todo))}
+        .filter((todo) => checkFilter(todo))
+        .map((todo) => renderTodoItem(todo))}
     </div>
   );
 }

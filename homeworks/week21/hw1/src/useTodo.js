@@ -1,5 +1,3 @@
-/* eslint-disable import/no-unresolved */
-/* eslint-disable no-shadow */
 import { useState, useRef } from 'react';
 
 const useTodo = () => {
@@ -41,12 +39,12 @@ const useTodo = () => {
           ...todo,
           isDone: !todo.isDone,
         };
-      }),
+      })
     );
   };
 
   const handleDeleteAll = () => {
-    setTodos(todos.filter(todo => todo.id === id));
+    setTodos(todos.filter((todo) => todo.id === id));
   };
 
   const showAll = () => {

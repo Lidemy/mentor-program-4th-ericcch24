@@ -1,6 +1,3 @@
-/* eslint-disable react/jsx-filename-extension */
-/* eslint-disable react/prop-types */
-/* eslint-disable import/no-unresolved */
 import styled from 'styled-components';
 import React from 'react';
 import './styles.css';
@@ -21,15 +18,17 @@ const TodoItemWrapper = styled.div`
 `;
 
 const TodoContent = styled.div`
-  color: ${props => props.theme.colors.primary_300};
+  color: ${(props) => props.theme.colors.primary_300};
   font-size: 15px;
 
-  ${props => props.size === 'XL'
-    && `
+  ${(props) =>
+    props.size === 'XL' &&
+    `
     font-size: 20px;  
   `}
-  ${props => props.$isDone
-    && `
+  ${(props) =>
+    props.$isDone &&
+    `
     text-decoration: line-through;
   `}
 `;
@@ -65,9 +64,7 @@ const RedButton = styled(Button)`
   color: red;
 `;
 
-const TodoItem = ({
-  todo, size, handleDeleteTodo, handleToggleIsDone,
-}) => {
+const TodoItem = ({ todo, size, handleDeleteTodo, handleToggleIsDone }) => {
   const handleDeleteClick = () => {
     handleDeleteTodo(todo.id);
   };

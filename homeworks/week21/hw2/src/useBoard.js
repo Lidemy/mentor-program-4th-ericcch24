@@ -1,5 +1,3 @@
-/* eslint-disable import/no-unresolved */
-/* eslint-disable no-shadow */
 import { useState } from 'react';
 
 export default function useBoard() {
@@ -12,7 +10,7 @@ export default function useBoard() {
     positionX,
     positionY,
     directionX,
-    directionY,
+    directionY
   ) => {
     const currentPosition = newBoard[positionX][positionY];
     let tempX = positionX;
@@ -38,18 +36,18 @@ export default function useBoard() {
 
   const checkWinner = (newBoard, x, y) => {
     if (
-      countStepToWin(newBoard, x, y, 1, 0)
-        + countStepToWin(newBoard, x, y, -1, 0)
-        >= 4
-      || countStepToWin(newBoard, x, y, 0, 1)
-        + countStepToWin(newBoard, x, y, 0, -1)
-        >= 4
-      || countStepToWin(newBoard, x, y, 1, 1)
-        + countStepToWin(newBoard, x, y, -1, -1)
-        >= 4
-      || countStepToWin(newBoard, x, y, 1, -1)
-        + countStepToWin(newBoard, x, y, -1, 1)
-        >= 4
+      countStepToWin(newBoard, x, y, 1, 0) +
+        countStepToWin(newBoard, x, y, -1, 0) >=
+        4 ||
+      countStepToWin(newBoard, x, y, 0, 1) +
+        countStepToWin(newBoard, x, y, 0, -1) >=
+        4 ||
+      countStepToWin(newBoard, x, y, 1, 1) +
+        countStepToWin(newBoard, x, y, -1, -1) >=
+        4 ||
+      countStepToWin(newBoard, x, y, 1, -1) +
+        countStepToWin(newBoard, x, y, -1, 1) >=
+        4
     ) {
       setWinner(newBoard[x][y]);
     }
