@@ -64,9 +64,9 @@ export default function game({
       </Description>
       <Board>
         {array.map((_, x) => (
-          <BoardRow key={x.id}>
+          <BoardRow key={x}>
             {array.map((_, y) => (
-              <BoardSquare key={y.id} onClick={handleGameClick(x, y, piece)}>
+              <BoardSquare key={y} onClick={handleGameClick(x, y, piece)}>
                 <Piece color={board[x][y]} />
               </BoardSquare>
             ))}
