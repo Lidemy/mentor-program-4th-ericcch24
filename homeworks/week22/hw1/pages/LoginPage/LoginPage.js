@@ -1,0 +1,74 @@
+import React, { useState, useContext } from "react";
+import styled from "styled-components";
+import { useHistory } from "react-router-dom";
+import { login, getMe } from "../../WebAPI";
+import { setAuthToken } from "../../utils";
+import { AuthContext, LoadingContext } from "../../contexts";
+
+const ErrorMessage = styled.div`
+  color: red;
+`;
+
+export default function LoginPage() {
+  const { setUser } = useContext(AuthContext);
+  const { isLoading, setIsLoading } = useContext(LoadingContext);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState();
+  const history = useHistory();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setErrorMessage(null);
+    if (isLoading) return;
+    setIsLoading(true);
+
+    login(username, password).then((data) => {
+      setIsLoading(false);
+      if (data.ok === 0) {
+        return setErrorMessage(data.message);
+      }
+      setAuthToken(data.token);
+
+      getMe()
+        .then((response) => {
+          if (response.ok !== 1) {
+            setAuthToken(null);
+            return setErrorMessage(response.toString());
+          }
+          setUser(response.data);
+          history.push("/");
+        })
+        .catch((err) => {
+          history.push("/");
+          return setErrorMessage(err);
+        });
+    });
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <div>
+        username:{" "}
+        <input
+          value={username}
+          onChange={(e) => {
+            setUsername(e.target.value);
+          }}
+        />
+      </div>
+      <div>
+        password:{" "}
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => {
+            setPassword(e.target.value);
+          }}
+        />
+      </div>
+      <button>登入</button>
+      {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
+    </form>
+  );
+}
